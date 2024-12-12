@@ -1,15 +1,13 @@
 package com.example.demo.pkg;
 
+import jakarta.annotation.Resource;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
 public class AnnoValidator implements ConstraintValidator<Anno, Pojo>  {
 
-    private final TestComponent testComponent;
-
-	public AnnoValidator(TestComponent testComponent) {
-		this.testComponent = testComponent;
-	}
+    @Resource
+    private TestComponent testComponent;
 
     @Override
     public boolean isValid(Pojo value, ConstraintValidatorContext context) {
